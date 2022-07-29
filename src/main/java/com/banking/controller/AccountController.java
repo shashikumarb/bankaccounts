@@ -22,9 +22,10 @@ public class AccountController {
     SequenceGeneratorService seqGeneratorService;
 
     @PostMapping("/create")
-    public void create(@RequestBody Account account) {
+    public String create(@RequestBody Account account) {
         account.setId(seqGeneratorService.generateSequence(Account.SEQUENCE_NAME));
         messageProducer.sendMessage(account);
+        return "Success";
     }
 
     @GetMapping("/read")
