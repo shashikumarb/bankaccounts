@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @ToString
+@Document(collection = "account")
 public class Account {
 
     public static final String SEQUENCE_NAME = "account_sequence";
